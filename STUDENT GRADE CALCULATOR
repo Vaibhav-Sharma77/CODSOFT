@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class StudentGradeCalculator {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the no. of subjects:");
+        int subjects=sc.nextInt();
+        int total=0;
+        System.out.println("Enter the marks obtained in "+subjects+" Subjects: ");
+        for(int i=1;i<=subjects;i++){
+			System.out.println("Marks in subject "+i);
+            int marks=sc.nextInt();
+            total=total+marks;
+        }
+        double AvgPer=(double)total/subjects;
+		
+		if(AvgPer>=90) {
+			System.out.println("Grade A+");
+		}else if(AvgPer>=80 && AvgPer<90) {
+			System.out.println("Grade A");
+		}else if(AvgPer>=70 && AvgPer<80) {
+			System.out.println("Grade B");
+		}else if(AvgPer>=60 && AvgPer<70) {
+			System.out.println("Grade C");
+		}else if(AvgPer>=50 && AvgPer<60){
+			System.out.println("Grade D");
+		}
+		else if(AvgPer>=40 && AvgPer<50){
+			System.out.println("Grade E");
+		}
+		else{
+			System.out.println("Fail F");
+		}
+        
+		System.out.println("Total Marks: "+total);
+		System.out.println("Average Percentage: "+ AvgPer);
+     }
+
+}
