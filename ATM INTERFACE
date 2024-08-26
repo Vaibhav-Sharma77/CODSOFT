@@ -1,0 +1,61 @@
+import java.util.Scanner;
+public class ATM_Interface{
+    public static void main(String[] args){
+        int pin = 1234;
+        int balance=10000;
+        int addamount=0;
+        int withdrawamount=0;
+        String name;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the password ");
+        int password=sc.nextInt();
+        if(password==pin){
+            System.out.println("enter your name: ");
+            name=sc.next();
+            System.out.println("Welcome "+name);
+            while(true)
+            {
+                System.out.println("Press 1 to check balance ");
+                System.out.println("Press 2 to add amount ");
+                System.out.println("Press 3 to withdraw ammount ");
+                System.out.println("Press 4 to exit ");
+
+                int op=sc.nextInt();
+                switch(op){
+                    case 1:
+                        System.out.println("Current balance "+balance);
+                        break;
+                    case 2:
+                        System.out.println("amount to add ");
+                        addamount=sc.nextInt();
+                        System.out.println("successfully added");
+                        balance=addamount+balance;
+                        break;
+                    case 3:
+                        System.out.println("enter amount to withdraw ");
+                        withdrawamount=sc.nextInt();
+                        if(withdrawamount>balance){
+                            System.out.println("insufficient balance");
+                        }
+                        else{
+                            System.out.println("withdrawl successfully");
+                            balance=balance-withdrawamount;
+                        }
+                        break;
+                    default:
+                        System.out.println("Press the no. between 1 to 4");
+                        break;
+                }
+
+                if(op==4){
+                    System.out.println("Thanks for using ATM");
+                    return;
+                }
+            }
+        }
+        else{
+            System.out.println("wrong pin");
+    
+        }
+    }
+}
